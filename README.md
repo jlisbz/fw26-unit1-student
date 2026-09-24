@@ -173,4 +173,5 @@ To complete Unit 1, submit your repository containing:
 * [ ] Complete implementation of `storage.py` wrapped in explicit `threading.Lock` and `threading.Condition` primitives.
 * [ ] Complete implementation of `server.py` utilizing `concurrent.futures.ThreadPoolExecutor`.
 * [ ] Terminal screenshot proving all 20 worker threads in `client_stress_test.py` execute without race condition failures or unhandled socket exceptions.
-* [ ] Live presentation to walk through the implementations.
+
+And a live presentation to walk through the implementations will be arranged for the evaluation.
