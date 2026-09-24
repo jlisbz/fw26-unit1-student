@@ -8,6 +8,26 @@ Instead of relying on high-level HTTP/gRPC frameworks that abstract away the net
 
 ---
 
+## Background and Objectives
+
+### Problem Statement
+
+Modern high-level frameworks hide essential network realities—such as TCP byte-stream fragmentation, thread pool exhaustion, partial writes, and race conditions—leaving engineers unable to debug low-level transport failures.
+### How to Resolve It
+
+Construct an in-memory key-value server from first principles without external frameworks:
+* Implement explicit fixed-length byte framing ($\text{Frame} = [\text{4-byte Length}] \;\vert{}\vert{}\; [\text{JSON Payload}]$).
+* Design a bounded thread pool worker manager to process concurrent client requests safely.
+* Protect shared state using fine-grained reader-writer locks (`ReentrantReadWriteLock`).
+
+
+### Student Experience
+
+Students work directly with raw socket streams. They trigger deliberate edge cases (burst clients, abrupt TCP disconnections, buffer overflow) to observe data corruption and thread deadlocks before implementing synchronization guards.
+
+
+---
+
 ## 📚 Textbook Theoretical Alignment (CDK5 Mapping)
 
 This project directly translates theoretical concepts from *Distributed Systems: Concepts and Design (5th Edition)* (Coulouris, Dollimore, Kindberg, and Blair) into working system code.
